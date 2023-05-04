@@ -36,7 +36,7 @@ export class Cart {
   }
 
   checkout(): string | null {
-    if(!this.isCheckedOut) {
+    if(!this.isCheckedOut && this.items.length !== 0) {
       this.isCheckedOut = true;
       return new Date().toISOString();
     }
