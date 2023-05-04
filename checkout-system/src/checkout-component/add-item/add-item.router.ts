@@ -25,6 +25,7 @@ export function createAddItemRouter(messageStore: MessageStore): Router {
 
       // TODO: Use business logic and capture changes in an event
 
+      // TODO: Write event to log
       return res.status(202).end();
     }
   );
