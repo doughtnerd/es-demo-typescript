@@ -14,13 +14,7 @@ export class Cart {
   private isCheckedOut = false;
 
   addItem(code: string, cost: number): CartItem | null {
-    if(!this.isCheckedOut) {
-      this.items.push({code, cost});
-      return {
-        code,
-        cost
-      }
-    }
+    // TODO: Add business logic
     return null;
   }
 

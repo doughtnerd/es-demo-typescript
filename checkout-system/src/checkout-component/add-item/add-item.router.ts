@@ -22,21 +22,8 @@ export function createAddItemRouter(messageStore: MessageStore): Router {
       const streamName = `cart-${cartId}`;
 
       const currentCart = await messageStore.project(streamName, cartProjection);
-      const addedItem = currentCart.addItem(code, cost);
 
-      if(!addedItem) {
-        return res.status(409).end();
-      }
-
-      await messageStore.writeMessage<ItemAddedEvent>(streamName, {
-        id: uuid(),
-        type: 'ItemAdded',
-        data: {
-          cartId,
-          ...addedItem
-        },
-        metadata: {}
-      });
+      // TODO: Use business logic and capture changes in an event
 
       return res.status(202).end();
     }
