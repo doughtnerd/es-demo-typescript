@@ -44,21 +44,7 @@ export class Cart {
   }
 }
 
-export const cartProjection: Projection<Cart, ItemAddedEvent | ItemRemovedEvent | CheckedOutEvent> = {
-  projectionName: 'Cart Write Model Projection',
-  entity: () => new Cart(),
-  handlers: {
-    ItemAdded: (entity, message) => {
-      entity.addItem(message.data.code, message.data.cost);
-      return entity;
-    },
-    ItemRemoved: (entity, message) => {
-      entity.removeItem(message.data.code);
-      return entity;
-    },
-    CheckedOut: (entity, _) => {
-      entity.checkout();
-      return entity;
-    }
-  }
-}
+type CartEvents = ItemAddedEvent | ItemRemovedEvent | CheckedOutEvent;
+
+// TODO: Write projection here
+export const cartProjection: Projection<Cart, CartEvents> = {};
