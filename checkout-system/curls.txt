@@ -1,0 +1,8 @@
+Add Item To Cart
+curl -X POST http://localhost:3000/add-item -H 'Content-Type: application/json' -d '{"cartId": "29033b62-9121-4a7e-bdc7-26836f0c4a22", "code": "macbook", "cost": 3000 }' -i
+
+Remove Item From Cart
+curl -X POST http://localhost:3000/remove-item -H 'Content-Type: application/json' -d '{"cartId": "29033b62-9121-4a7e-bdc7-26836f0c4a22", "code": "macbook" }' -i
+
+Checkout
+curl -X POST http://localhost:3000/checkout -H 'Content-Type: application/json' -d '{"cartId": "29033b62-9121-4a7e-bdc7-26836f0c4a22" }' -i

@@ -1,0 +1,30 @@
+{
+  "name": "checkout-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node --project=tsconfig.json ./src/index.ts",
+    "knex": "knex --knexfile ./src/db/knexfile.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.16.3",
+    "@types/pg": "^8.6.6",
+    "@types/uuid": "^9.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@doughtnerd/message-store-connector": "^1.4.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "knex": "^2.4.2",
+    "pg": "^8.10.0",
+    "pheno": "^0.7.1",
+    "uuid": "^9.0.0"
+  }
+}
