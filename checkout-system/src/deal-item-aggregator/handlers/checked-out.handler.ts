@@ -12,20 +12,6 @@ export function createCheckedOutHandler(db: Knex): MessageHandlerFunc {
     const streamName = `cart-${cartId}`;
 
     // TODO: Add projection that looks at the message right before checkout to see if it was a removed event.
-    const removedBeforeCheckout = await messageStore.project<string | null, ItemRemovedEvent>(
-      streamName, 
-      {
-        projectionName: 'Item removed before checkout',
-        entity: null,
-        handlers: {
-          ItemRemoved: (_, message) => message.data.code
-        }
-      }, 
-      {
-        startingPosition: position - 1
-      }
-    );
-
 
     if(removedBeforeCheckout) {
       const [existingDealItem] = await db.table('deal_item').where({ item_code: removedBeforeCheckout });
