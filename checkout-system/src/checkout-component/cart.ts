@@ -1,4 +1,4 @@
-import {MinimalWritableMessage, Projection} from "@doughtnerd/message-store-connector";
+import {Projection} from "@doughtnerd/message-store-connector";
 import {ItemAddedEvent} from "./add-item/item-added.event";
 import {CheckedOutEvent} from "./checkout/checked-out.event";
 import {ItemRemovedEvent} from "./remove-item/item-removed.event";
@@ -14,7 +14,13 @@ export class Cart {
   private isCheckedOut = false;
 
   addItem(code: string, cost: number): CartItem | null {
-    // TODO: Add business logic
+    if(!this.isCheckedOut) {
+      this.items.push({code, cost});
+      return {
+        code,
+        cost
+      }
+    }
     return null;
   }
 
